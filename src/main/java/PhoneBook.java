@@ -23,6 +23,6 @@ public class PhoneBook {
     }
 
     public int findByName(String name) {
-        throw new NullPointerException();
+        return contacts.getOrDefault(name, -1);
     }
 }
