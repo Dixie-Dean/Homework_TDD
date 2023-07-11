@@ -21,4 +21,8 @@ public class PhoneBook {
             return "Contact not found!";
         }
     }
+
+    public int findByName(String name) {
+        throw new NullPointerException();
+    }
 }
