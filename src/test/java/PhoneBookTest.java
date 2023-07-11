@@ -6,10 +6,13 @@ public class PhoneBookTest {
     PhoneBook phoneBook = new PhoneBook();
     @Test
     public void add() {
-        int expected = 1;
-
         int result = phoneBook.add("Harry", 4568126);
+        Assert.assertEquals(1, result);
+    }
 
-        Assert.assertEquals(expected, result);
+    @Test
+    public void findByNumber() {
+        String result = phoneBook.findByNumber(4568126);
+        Assert.assertNotNull(result);
     }
 }
