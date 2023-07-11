@@ -27,6 +27,15 @@ public class PhoneBook {
     }
 
     public String printAllNames() {
-        return null;
+        StringBuilder builder = new StringBuilder();
+        List<Map.Entry<String, Integer>> list = contacts.entrySet().stream().toList();
+        for (Map.Entry<String, Integer> contact : list) {
+            builder.append("Name: ")
+                    .append(contact.getKey())
+                    .append(" | Number: ")
+                    .append(contact.getValue())
+                    .append("\n");
+        }
+        return builder.toString();
     }
 }
