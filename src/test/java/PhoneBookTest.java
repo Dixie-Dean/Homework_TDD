@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 public class PhoneBookTest {
     PhoneBook phoneBook;
@@ -33,5 +32,20 @@ public class PhoneBookTest {
     @Test
     public void findByNameDoesNotThrow() {
         Assertions.assertDoesNotThrow(() -> phoneBook.findByName("Ron"));
+    }
+
+    @Test
+    public void printAllNames() {
+        phoneBook.add("Frank", 123);
+        phoneBook.add("Harry", 643);
+        phoneBook.add("Eugen", 455);
+        String expected =
+                """
+                        Name: Eugen | Number: 455
+                        Name: Frank | Number: 123
+                        Name: Harry | Number: 643
+                        """;
+        String result = phoneBook.printAllNames();
+        Assertions.assertEquals(expected, result);
     }
 }
