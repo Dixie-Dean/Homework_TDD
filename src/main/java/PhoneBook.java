@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -10,6 +11,14 @@ public class PhoneBook {
     }
 
     public String findByNumber(int number) {
-        return null;
+        if (contacts.containsValue(number)) {
+            List<Map.Entry<String, Integer>> foundContacts = contacts.entrySet()
+                    .stream()
+                    .filter(entry -> entry.getValue().equals(number))
+                    .toList();
+            return foundContacts.toString();
+        } else {
+            return "Contact not found!";
+        }
     }
 }
